@@ -1,15 +1,16 @@
-import * as fs from 'fs';
-import * as yaml from 'js-yaml';
-import * as express from 'express';
-import * as openapi from 'express-openapi';
-import * as bodyParser from 'body-parser';
+import * as fs from 'fs'
+import * as yaml from 'js-yaml'
+import * as express from 'express'
+import * as openapi from 'express-openapi'
+import * as bodyParser from 'body-parser'
+import * as swaggerUi from 'swagger-ui-express'
 
 class Server {
-    port: number = process.env.PORT || 10080;
-    app = express();
+    port: number = +process.env.PORT || 10080
+    app = express()
 
-    constructor () {
-        const api = yaml.safeLoad(fs.readFileSync('api.yml', 'utf-8'));
+    constructor() {
+        const api = yaml.safeLoad(fs.readFileSync('api.yml', 'utf-8'))
 
         openapi.initialize({
             app: this.app,
@@ -21,21 +22,28 @@ class Server {
                 'text/text': bodyParser.text()
             },
             errorMiddleware: (err, req, res, next) => {
-                res.status(400);
-                res.json(err);
+                res.status(400)
+                res.json(err)
             },
             errorTransformer: (openapi, jsonschema) => {
-                return openapi.message;
+                return openapi.message
             },
             exposeApiDocs: true
-        });
+        })
     }
 
-    start () {
+    start() {
+        const options = { swaggerUrl: '/v1/schema' }
+        this.app.use(
+            '/api-docs',
+            swaggerUi.serve,
+            swaggerUi.setup(null, options)
+        )
+
         this.app.listen(this.port, () => {
-            console.log(`listening on ${this.port}`);
-        });
+            console.log(`listening on ${this.port}`)
+        })
     }
 }
 
-export default Server;
+export default Server

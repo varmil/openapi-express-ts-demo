@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "express-openapi",
   "scripts": {
+    "dev": "ts-node-dev --respawn --transpileOnly src/index.ts",
     "start": "node server",
     "build": "gulp build",
     "test": "gulp test",
@@ -21,7 +22,9 @@
     "express": "^4.15.2",
     "express-openapi": "^0.35.0",
     "js-yaml": "^3.8.3",
+    "node-pre-gyp": "^0.13.0",
     "sqlite3": "^3.1.8",
+    "swagger-ui-express": "^4.0.2",
     "typeorm": "0.0.11"
   },
   "devDependencies": {
@@ -34,6 +37,7 @@
     "gulp-typescript": "^3.1.6",
     "mocha": "^3.2.0",
     "supertest": "^3.0.0",
+    "ts-node-dev": "^1.0.0-pre.39",
     "tslint": "^5.1.0",
     "typescript": "^2.2.2"
   }
