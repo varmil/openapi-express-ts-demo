@@ -21,7 +21,7 @@ parameters:
     type: integer
     format: int32
   offset:
-    description: 取得するレコードの開始位置
+    description: 取得するレコードの開始位置 aa
     name: offset
     in: query
     type: integer

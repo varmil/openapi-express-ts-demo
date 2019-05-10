@@ -33,7 +33,14 @@ class Server {
     }
 
     start() {
-        const options = { swaggerUrl: '/v1/schema' }
+        // http://localhost:10080/api-docs でUI閲覧
+        const options = {
+            swaggerUrl: '/v1/schema',
+            swaggerOptions: {
+                // Default: Number=1. The default expansion depth for models (set to -1 completely hide the models).
+                defaultModelsExpandDepth: -1
+            }
+        }
         this.app.use(
             '/api-docs',
             swaggerUi.serve,

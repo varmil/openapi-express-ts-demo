@@ -1,17 +1,17 @@
-import { Operation } from 'express-openapi';
-import * as api from '../../api';
-import Task from '../../models/TaskController';
-import { ITaskOne } from '../../models/TaskController';
+import { Operation } from 'express-openapi'
+import * as api from '../../api'
+import Task from '../../models/TaskController'
+import { ITaskOne } from '../../models/TaskController'
 
 export const get: Operation = async (req, res) => {
-    let task: ITaskOne;
+    let task: ITaskOne
     try {
-        task = await Task.get(req.params.id);
+        task = await Task.get(req.params.id)
     } catch (err) {
-        api.responseError(res, err);
+        api.responseError(res, err)
     }
-    api.responseJSON(res, 200, task);
-};
+    api.responseJSON(res, 200, task)
+}
 
 get.apiDoc = {
     summary: '指定IDタスクの取得',
@@ -42,17 +42,17 @@ get.apiDoc = {
             }
         }
     }
-};
+}
 
 export const put: Operation = async (req, res) => {
-    let task: ITaskOne;
+    let task: ITaskOne
     try {
-        task = await Task.update(req.params.id, req.body);
+        task = await Task.update(req.params.id, req.body)
     } catch (err) {
-        api.responseError(res, err);
+        api.responseError(res, err)
     }
-    api.responseJSON(res, 200, task);
-};
+    api.responseJSON(res, 200, task)
+}
 
 put.apiDoc = {
     summary: '指定IDタスクの更新',
@@ -90,17 +90,17 @@ put.apiDoc = {
             }
         }
     }
-};
+}
 
 export const del: Operation = async (req, res) => {
-    let task: ITaskOne;
+    let task: ITaskOne
     try {
-        task = await Task.delete(req.params.id);
+        task = await Task.delete(req.params.id)
     } catch (err) {
-        api.responseError(res, err);
+        api.responseError(res, err)
     }
-    api.responseJSON(res, 200, task);        
-};
+    api.responseJSON(res, 200, task)
+}
 
 del.apiDoc = {
     summary: '指定IDタスクの削除',
@@ -128,4 +128,4 @@ del.apiDoc = {
             }
         }
     }
-};
+}

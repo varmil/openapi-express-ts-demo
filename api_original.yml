@@ -29,7 +29,7 @@ paths:
               - $ref: '#/definitions/PageInfo'
         404:
           description: タスク一覧が取得できませんでした
-          schema: 
+          schema:
             $ref: '#/definitions/Error'
         default:
           description: 予期しないエラー
@@ -53,7 +53,7 @@ paths:
             $ref: '#/definitions/TaskOne'
         400:
           description: タスクが登録できませんでした
-          schema: 
+          schema:
             $ref: '#/definitions/Error'
         default:
           description: 予期しないエラー
@@ -73,7 +73,7 @@ paths:
             $ref: '#/definitions/TaskOne'
         404:
           description: 指定IDのタスクが見つかりませんでした
-          schema: 
+          schema:
             $ref: '#/definitions/Error'
         default:
           description: 予期しないエラー
@@ -97,7 +97,7 @@ paths:
             $ref: '#/definitions/TaskOne'
         400:
           description: タスクが更新できませんでした
-          schema: 
+          schema:
             $ref: '#/definitions/Error'
         default:
           description: 予期しないエラー
@@ -114,7 +114,7 @@ paths:
           description: タスクを削除しました
         400:
           description: タスクが削除できませんでした
-          schema: 
+          schema:
             $ref: '#/definitions/Error'
         default:
           description: 予期しないエラー
@@ -178,7 +178,7 @@ definitions:
     readOnly: true
     properties:
       id:
-        description: タスクのID
+        description: タスクのID bb
         type: integer
         format: int32
       title:
