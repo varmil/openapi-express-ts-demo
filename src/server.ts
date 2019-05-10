@@ -25,9 +25,9 @@ class Server {
                 res.status(400)
                 res.json(err)
             },
-            errorTransformer: (openapi, jsonschema) => {
-                return openapi.message
-            },
+            // errorTransformer: (openapi, jsonschema) => {
+            //     return openapi.message
+            // },
             exposeApiDocs: true
         })
     }

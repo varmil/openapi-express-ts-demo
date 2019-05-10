@@ -1,17 +1,21 @@
-import { Operation } from 'express-openapi';
-import * as api from '../api';
-import Task from '../models/TaskController';
-import { ITaskListResponse, ITaskList, ITaskOne } from '../models/TaskController';
+import { Operation } from 'express-openapi'
+import * as api from '../api'
+import Task from '../models/TaskController'
+import {
+    ITaskListResponse,
+    ITaskList,
+    ITaskOne
+} from '../models/TaskController'
 
 export const get: Operation = async (req, res) => {
-    let tasks: ITaskListResponse;
+    let tasks: ITaskListResponse
     try {
-        tasks = await Task.all(req.query);
+        tasks = await Task.all(req.query)
     } catch (err) {
-        api.responseError(res, err);
+        api.responseError(res, err)
     }
-    api.responseJSON(res, 200, tasks);
-};
+    api.responseJSON(res, 200, tasks)
+}
 
 get.apiDoc = {
     summary: 'タスク一覧の取得',
@@ -44,17 +48,17 @@ get.apiDoc = {
             }
         }
     }
-};
+}
 
 export const post: Operation = async (req, res) => {
-    let task: ITaskOne;
+    let task: ITaskOne
     try {
-        task = await Task.add(req.body);
+        task = await Task.add(req.body)
     } catch (err) {
-        api.responseError(res, err);
+        api.responseError(res, err)
     }
-    api.responseJSON(res, 201, task);
-};
+    api.responseJSON(res, 201, task)
+}
 
 post.apiDoc = {
     summary: 'タスクの登録',
@@ -89,4 +93,4 @@ post.apiDoc = {
             }
         }
     }
-};
+}
