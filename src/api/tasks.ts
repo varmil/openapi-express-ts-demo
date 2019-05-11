@@ -40,12 +40,6 @@ get.apiDoc = {
             schema: {
                 $ref: '#/definitions/Error'
             }
-        },
-        default: {
-            description: '予期しないエラー',
-            schema: {
-                $ref: '#/definitions/Error'
-            }
         }
     }
 }

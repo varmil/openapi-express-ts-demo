@@ -1,3 +1,4 @@
+import * as path from 'path'
 import * as fs from 'fs'
 import * as yaml from 'js-yaml'
 import * as express from 'express'
@@ -15,7 +16,8 @@ class Server {
         openapi.initialize({
             app: this.app,
             apiDoc: api,
-            paths: './server/api',
+            // paths: path.resolve(__dirname, 'api'),
+            paths: './dist/api',
             docsPath: '/schema',
             consumesMiddleware: {
                 'application/json': bodyParser.json(),

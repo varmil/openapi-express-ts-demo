@@ -4,16 +4,12 @@
   "description": "express-openapi",
   "scripts": {
     "dev": "nodemon",
-    "start": "node server",
-    "build": "gulp build",
+    "start": "node dist",
+    "build": "npx tsc",
     "test": "gulp test",
     "clean": "gulp clean"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github-private:BcRikko/express-openapi-sample.git"
-  },
-  "author": "BcRikko",
+  "author": "Dayone, inc.",
   "dependencies": {
     "@types/body-parser": "^1.16.3",
     "@types/express": "^4.0.35",
@@ -39,8 +35,7 @@
     "nodemon": "^1.19.0",
     "supertest": "^3.0.0",
     "ts-node": "^8.1.0",
-    "ts-node-dev": "^1.0.0-pre.39",
-    "tslint": "^5.1.0",
-    "typescript": "^2.2.2"
+    "tslint": "^5.13.1",
+    "typescript": "^3.4.5"
   }
 }
