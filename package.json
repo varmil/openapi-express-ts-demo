@@ -6,7 +6,8 @@
     "dev": "nodemon",
     "start": "node dist",
     "build": "tsc",
-    "test": "gulp test"
+    "test": "gulp test",
+    "testjest": "jest"
   },
   "author": "Dayone Co., Ltd.",
   "dependencies": {
@@ -22,6 +23,8 @@
     "typeorm": "0.0.11"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/superagent": "^4.1.1",
     "@types/swagger-ui-express": "^3.0.0",
     "chai": "^3.5.0",
     "del": "^2.2.2",
@@ -30,9 +33,11 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-tslint": "^8.0.0",
     "gulp-typescript": "^3.1.6",
+    "jest": "^24.8.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.19.0",
     "supertest": "^3.0.0",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
   }
