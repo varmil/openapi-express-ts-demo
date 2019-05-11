@@ -3,7 +3,7 @@ import * as superagent from 'superagent'
 const request = require('supertest')
 const agent = request.agent('http://localhost:10080/v1/')
 
-import * as Server from '../dist/Server'
+import * as Server from '../src/server'
 const server = new Server.default()
 server.start()
 

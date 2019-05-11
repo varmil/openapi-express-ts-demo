@@ -9,7 +9,7 @@ import * as swaggerUi from 'swagger-ui-express'
 const DIST = '/dist'
 
 class Server {
-  port: number = +process.env.PORT || 10080
+  port: number = +(process.env.PORT || 10080)
   app = express()
 
   constructor() {

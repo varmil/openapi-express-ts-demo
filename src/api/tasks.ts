@@ -7,10 +7,10 @@ export const get: Operation = async (req, res) => {
   let tasks: ITaskListResponse
   try {
     tasks = await Task.all(req.query)
+    api.responseJSON(res, 200, tasks)
   } catch (err) {
     api.responseError(res, err)
   }
-  api.responseJSON(res, 200, tasks)
 }
 
 get.apiDoc = {
@@ -41,10 +41,10 @@ export const post: Operation = async (req, res) => {
   let task: ITaskOne
   try {
     task = await Task.add(req.body)
+    api.responseJSON(res, 201, task)
   } catch (err) {
     api.responseError(res, err)
   }
-  api.responseJSON(res, 201, task)
 }
 
 post.apiDoc = {

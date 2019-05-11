@@ -1,48 +1,50 @@
-express-openapi-sample
-====
-
-ExpressのOpen API(旧Swagger)フレームワークを使って、Todoアプリをつくる
+# opened-api-server
 
 ## 使い方
 
-Node.jsはとりあずv6.0以上
-* node.js >= v6.0
+- node.js >= v10.3.0
 
 ### Install
+
 ```sh
 $ npm install
 ```
 
+### Dev
+
+```sh
+$ npm run dev
+```
+
 ### Build
+
 ```sh
 $ npm run build
 ```
 
 ### Test
+
 ```sh
 $ npm run test
 ```
 
-
 ## メモ
 
-### Open APIについて
+### Open API について
 
-RESTful APIのインターフェイスを記述するフォーマット。
-express-oepnapiでは、`paths`部分を空にしてしまうので、オリジナルは[api_original.yml](./api_original.yml)を参照。
+RESTful API のインターフェイスを記述するフォーマット。
+express-oepnapi では、`paths`部分を空にしてしまうので、オリジナルは[api_original.yml](./api_original.yml)を参照。
 
-* [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
-* [express-openapi](https://github.com/kogosoftwarellc/express-openapi)
+- [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
+- [express-openapi](https://github.com/kogosoftwarellc/express-openapi)
 
+### API のパスについて
 
-### APIのパスについて
-
-APIのベースパスは、[api.yml#L2](./api.yml#L2)部分で定義する。
+API のベースパスは、[api.yml#L2](./api.yml#L2)部分で定義する。
 ここで指定した`basePath`が`http://example.com/{basePath}/`のようになる。
-`api`だったり`1.0`のようなAPIバージョンを書くことが多い。
+`api`だったり`1.0`のような API バージョンを書くことが多い。
 
 エンドポイントは、`src/api`以下でファイル名やディレクトリ名がそのままパスになる。
-
 
 ### ディレクトリについて
 
@@ -64,6 +66,4 @@ APIのベースパスは、[api.yml#L2](./api.yml#L2)部分で定義する。
 
 ### バリデーションについて
 
-`src/api`で定義されている`apiDoc`により、pathやbodyパラメータのバリデーションが行われる。
-
-
+`src/api`で定義されている`apiDoc`により、path や body パラメータのバリデーションが行われる。
