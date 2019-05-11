@@ -23,27 +23,6 @@ gulp.task('tslint', () => {
         )
 })
 
-gulp.task('clean', ['tslint'], () => {
-    del.sync([DEST])
-})
-
-// gulp.task('tsc', ['clean'], () => {
-//     const tsProject = typescript.createProject('tsconfig.json', () => {
-//         typescript: require('typescript')
-//     });
-//     return gulp
-//         .src([
-//             'src/**/*.ts'
-//         ])
-//         .pipe(sourcemap.init())
-//         .pipe(tsProject())
-//         .js
-//         .pipe(sourcemap.write('./'))
-//         .pipe(gulp.dest(DEST));
-// });
-
-gulp.task('build', ['tsc'])
-
 gulp.task('test', ['build'], () => {
     gulp.src(['test/**/*.js']).pipe(
         mocha({

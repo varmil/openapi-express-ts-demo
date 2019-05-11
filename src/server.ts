@@ -1,4 +1,3 @@
-import * as path from 'path'
 import * as fs from 'fs'
 import * as yaml from 'js-yaml'
 import * as express from 'express'
@@ -6,18 +5,20 @@ import * as openapi from 'express-openapi'
 import * as bodyParser from 'body-parser'
 import * as swaggerUi from 'swagger-ui-express'
 
+// TypeScriptの outDir
+const DIST = '/dist'
+
 class Server {
     port: number = +process.env.PORT || 10080
     app = express()
 
     constructor() {
-        const api = yaml.safeLoad(fs.readFileSync('api.yml', 'utf-8'))
+        const api = yaml.safeLoad(fs.readFileSync(`src/api.yml`, 'utf-8'))
 
         openapi.initialize({
             app: this.app,
             apiDoc: api,
-            // paths: path.resolve(__dirname, 'api'),
-            paths: './dist/api',
+            paths: `.${DIST}/api`, // NOTE: ビルドしたものを参照しないと動かない…
             docsPath: '/schema',
             consumesMiddleware: {
                 'application/json': bodyParser.json(),
@@ -50,7 +51,7 @@ class Server {
         )
 
         this.app.listen(this.port, () => {
-            console.log(`listening on ${this.port}`)
+            console.log(`opened-api-server listening on ${this.port}`)
         })
     }
 }
