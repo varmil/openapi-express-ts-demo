@@ -13,7 +13,7 @@ class Server {
     app = express()
 
     constructor() {
-        const api = yaml.safeLoad(fs.readFileSync(`src/api.yml`, 'utf-8'))
+        const api = yaml.safeLoad(fs.readFileSync(`api.yml`, 'utf-8'))
 
         openapi.initialize({
             app: this.app,

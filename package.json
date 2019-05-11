@@ -5,9 +5,8 @@
   "scripts": {
     "dev": "nodemon",
     "start": "node dist",
-    "build": "npx tsc",
-    "test": "gulp test",
-    "clean": "gulp clean"
+    "build": "tsc",
+    "test": "gulp test"
   },
   "author": "Dayone, inc.",
   "dependencies": {
@@ -18,7 +17,6 @@
     "express": "^4.16.4",
     "express-openapi": "^4.5.0",
     "js-yaml": "^3.8.3",
-    "node-pre-gyp": "^0.13.0",
     "sqlite3": "^3.1.8",
     "swagger-ui-express": "^4.0.2",
     "typeorm": "0.0.11"
