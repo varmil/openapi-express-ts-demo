@@ -1,10 +1,9 @@
 import * as superagent from 'superagent'
 
-// const expect = require('chai').expect
 const request = require('supertest')
 const agent = request.agent('http://localhost:10080/v1/')
-const Server = require('../dist/Server')
 
+import * as Server from '../dist/Server'
 const server = new Server.default()
 server.start()
 
